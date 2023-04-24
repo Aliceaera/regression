@@ -1,0 +1,21 @@
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+# 加载数据集
+datasets = load_iris()
+# 拆分数据集
+X_train, X_test, y_train, y_test = train_test_split(
+    datasets.data,
+    datasets.target,
+    test_size=0.2,
+    random_state=1,
+)
+lr = LogisticRegression(max_iter=3000)
+lr.fit(X_train, y_train)
+score = lr.score(X_test, y_test)
+print(score)
+
+作者：ZackSock
+链接：https://juejin.cn/post/7058979249289429000
+来源：稀土掘金
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
